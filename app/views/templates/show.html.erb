@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Label:</strong>
+  <%= @template.label %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @template.content %>
+</p>
+
+<%= link_to 'Edit', edit_template_path(@template), class: 'btn btn-primary' %>
+<%= link_to 'Back', templates_path, class: 'btn btn-info ' %>

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Label:</strong>
+  <%= @replacement.label %>
+</p>
+
+<p>
+  <strong>Template:</strong>
+  <%= truncate(@replacement.template.content, length: 40) %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= simple_format(truncate(@replacement.value.content, length: 40)) %>
+</p>
+
+<%= link_to 'Edit', edit_replacement_path(@replacement) %> |
+<%= link_to 'Back', replacements_path %>

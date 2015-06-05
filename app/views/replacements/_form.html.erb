@@ -1,0 +1,29 @@
+<%= form_for(@replacement) do |f| %>
+  <% if @replacement.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@replacement.errors.count, "error") %> prohibited this replacement from being saved:</h2>
+
+      <ul>
+      <% @replacement.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :label %><br>
+    <%= f.text_field :label %>
+  </div>
+  <div class="field">
+    <%= f.label :template_id %><br>
+    <%= collection_select(:replacement, :template_id, @templates, :id, :label, {prompt: false} ) %>
+  </div>
+  <div class="field">
+    <%= f.label :value_id %><br>
+    <%= collection_select(:replacement, :value_id, @values, :id, :label, {prompt: false} ) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
