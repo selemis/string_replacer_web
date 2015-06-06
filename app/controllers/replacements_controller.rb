@@ -70,14 +70,19 @@ class ReplacementsController < ApplicationController
 
   def replace
     replacement = Replacement.find(params[:id])
-
     values = CSV.parse(replacement.value.content, headers: true, col_sep: ';')
     hashes = values.map { |row| row.to_hash }
-    p hashes
-    p replacement.template.content
-
     @sr = StringReplacer.new(replacement.template.content, hashes)
+  end
 
+  def download
+    replacement = Replacement.find(params[:id])
+    values = CSV.parse(replacement.value.content, headers: true, col_sep: ';')
+    hashes = values.map { |row| row.to_hash }
+    @sr = StringReplacer.new(replacement.template.content, hashes)
+    send_data @sr.map{|line| line}.join,
+              type: 'text/plain; charset=utf-8',
+              disposition: 'attachment; filename=replacement.txt'
   end
 
   private
