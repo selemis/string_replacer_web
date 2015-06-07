@@ -1,5 +1,5 @@
 <ul class="list-group">
   <% @sr.each do |line| %>
-      <li class="list-group-item"><%= line %></li>
+      <li class="list-group-item"><%= simple_format(line) %></li>
   <% end %>
 </ul>

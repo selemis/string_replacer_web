@@ -15,5 +15,5 @@
   <%= simple_format(truncate(@replacement.value.content, length: 40)) %>
 </p>
 
-<%= link_to 'Edit', edit_replacement_path(@replacement) %> |
-<%= link_to 'Back', replacements_path %>
+<%= link_to 'Edit', edit_replacement_path(@replacement,class: 'btn btn-primary') %> |
+<%= link_to 'Back', replacements_path, class: 'btn btn-info' %>

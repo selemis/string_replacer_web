@@ -1,4 +1,7 @@
 source 'https://rubygems.org'
+ruby '2.2.1'
+
+gem 'pg', group: :production
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
