@@ -1,6 +1,6 @@
 <h1>Listing replacements</h1>
 
-<table>
+<table class="table table-hover table-striped ">
   <thead>
   <tr>
     <th>Label</th>
@@ -17,9 +17,9 @@
         <td><%= truncate(replacement.template.content, length: 40) %> </td>
         <td><%= truncate(replacement.value.content, length: 40) %> </td>
         <td>
-          <%= link_to 'Show', replacement %>
-          <%= link_to 'Edit', edit_replacement_path(replacement) %>
-          <%= link_to 'Destroy', replacement, method: :delete, data: {confirm: 'Are you sure?'} %>
+          <%= link_to 'Show', replacement, class: 'btn btn-info btn-xs' %>
+          <%= link_to 'Edit', edit_replacement_path(replacement), class: 'btn btn-primary btn-xs' %>
+          <%= link_to 'Destroy', replacement, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger btn-xs' %>
         </td>
       </tr>
   <% end %>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Replacement', new_replacement_path %>
+<%= link_to 'New Replacement', new_replacement_path,class: 'btn btn-primary' %>
