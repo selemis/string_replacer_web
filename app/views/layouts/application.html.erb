@@ -21,9 +21,9 @@
     </div>
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li><%= link_to 'Templates', templates_path, class: 'active' %></li>
-        <li><%= link_to 'Values', values_path %></li>
-        <li><%= link_to 'Replacements', replacements_path %></li>
+        <%= nav_link 'Templates', templates_path, 'active' %>
+        <%= nav_link 'Values', values_path, 'active' %>
+        <%= nav_link 'Replacements', replacements_path, 'active' %>
       </ul>
     </div><!--/.nav-collapse -->
   </div>
@@ -38,7 +38,8 @@
 
 <footer class="footer">
   <div class="container">
-    <p class="text-muted">Place sticky footer content here.</p>
+    <p class="text-muted">
+      Stelios Omirou, Copyright 2015</p>
   </div>
 </footer>
 
