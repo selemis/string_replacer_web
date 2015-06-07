@@ -3,7 +3,7 @@
 
       <% if @template.errors.any? %>
           <div id="error_explanation">
-            <h2><%= pluralize(@template.errors.count, "error") %> prohibited
+            <h2><%= pluralize(@template.errors.count, 'error') %> prohibited
               this template from being saved:</h2>
 
             <ul>
@@ -12,6 +12,7 @@
               <% end %>
             </ul>
           </div>
+
       <% end %>
 
 

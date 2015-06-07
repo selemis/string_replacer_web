@@ -6,7 +6,7 @@
     <th>Label</th>
     <th>Template</th>
     <th>Value</th>
-    <th colspan="3"></th>
+    <th colspan="5"></th>
   </tr>
   </thead>
 
@@ -14,11 +14,13 @@
   <% @replacements.each do |replacement| %>
       <tr>
         <td><%= replacement.label %></td>
-        <td><%= truncate(replacement.template.content, length: 40) %> </td>
-        <td><%= truncate(replacement.value.content, length: 40) %> </td>
+        <td><%= link_to truncate(replacement.template.content, length: 40), replacement.template %> </td>
+        <td><%= link_to truncate(replacement.value.content, length: 40), replacement.value %> </td>
         <td>
+          <%= link_to 'Replace', replace_path(replacement), class: 'btn btn-primary btn-xs' %>
+          <%= link_to 'Download', download_path(replacement), class: 'btn btn-success btn-xs' %>
           <%= link_to 'Show', replacement, class: 'btn btn-info btn-xs' %>
-          <%= link_to 'Edit', edit_replacement_path(replacement), class: 'btn btn-primary btn-xs' %>
+          <%= link_to 'Edit', edit_replacement_path(replacement), class: 'btn btn-warning btn-xs' %>
           <%= link_to 'Destroy', replacement, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger btn-xs' %>
         </td>
       </tr>
