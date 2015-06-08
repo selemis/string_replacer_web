@@ -56,7 +56,13 @@ class ValuesController < ApplicationController
   def destroy
     @value.destroy
     respond_to do |format|
-      format.html { redirect_to values_url, notice: 'Value was successfully destroyed.' }
+      format.html do
+        if @value.destroyed?
+          redirect_to values_url, notice: 'Value was successfully destroyed.'
+        else
+          redirect_to values_url, alert: @value.errors.full_messages.join(',')
+        end
+      end
       format.json { head :no_content }
     end
   end

@@ -55,8 +55,16 @@ class TemplatesController < ApplicationController
   # DELETE /templates/1.json
   def destroy
     @template.destroy
+
+
     respond_to do |format|
-      format.html { redirect_to templates_url, notice: 'Template was successfully destroyed.' }
+      format.html do
+        if @template.destroyed?
+          redirect_to templates_url, notice: 'Template was successfully destroyed.'
+        else
+          redirect_to templates_url, alert: @template.errors.full_messages.join(',')
+        end
+      end
       format.json { head :no_content }
     end
   end

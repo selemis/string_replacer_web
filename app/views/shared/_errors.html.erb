@@ -1,0 +1,18 @@
+<% if object.errors.any? %>
+    <section id="errors">
+      <header>
+        <h2>
+          <%= pluralize(object.errors.count, 'error') %>
+        </h2>
+
+        <h3>
+          Διορθώστε τα παρακάτω λάθη
+        </h3>
+      </header>
+      <ul>
+        <% object.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+        <% end %>
+      </ul>
+    </section>
+<% end %>
